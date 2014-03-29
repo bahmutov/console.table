@@ -1,0 +1,39 @@
+{
+  "name": "console.json",
+  "description": "Adds console.json method that stringifies passed in objects and logs them",
+  "version": "0.1.1",
+  "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/bahmutov/console.json/issues"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.4",
+    "grunt-contrib-jshint": "^0.9.2",
+    "grunt-deps-ok": "^0.1.8",
+    "grunt-nice-package": "^0.2.3",
+    "jshint-stylish": "^0.1.5",
+    "matchdep": "^0.3.0",
+    "pre-git": "0.0.15",
+    "time-grunt": "^0.3.1"
+  },
+  "homepage": "https://github.com/bahmutov/console.json",
+  "keywords": [
+    "console",
+    "json",
+    "stringify"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "pre-commit": [
+    "grunt",
+    "npm test"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:bahmutov/console.json.git"
+  },
+  "scripts": {
+    "test": "node test/test.js"
+  }
+}
+
