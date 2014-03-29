@@ -19,11 +19,35 @@ module.exports = function (grunt) {
       default: {
         'src': [ '*.js', 'test/*.js' ]
       }
+    },
+
+    sync: {
+      all: {
+        options: {
+          sync: ['author', 'name', 'version', 'private', 'license', 'keywords'],
+        }
+      }
+    },
+
+    concat: {
+      dist: {
+        src: ['node_modules/js-beautify/js/lib/beautify-html.js', 'index.js'],
+        dest: 'dist/console.html.js'
+      }
+    },
+
+    copy: {
+      dist: {
+        files: {
+          'dist/index.html': 'index.html'
+        }
+      }
     }
   });
 
   var plugins = module.require('matchdep').filterDev('grunt-*');
   plugins.forEach(grunt.loadNpmTasks);
 
-  grunt.registerTask('default', ['deps-ok', 'nice-package', 'jshint']);
+  grunt.registerTask('browser', ['sync', 'concat', 'copy']);
+  grunt.registerTask('default', ['deps-ok', 'nice-package', 'jshint', 'browser']);
 };

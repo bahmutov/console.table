@@ -1,0 +1,21 @@
+{
+  "name": "console.html",
+  "main": "index.js",
+  "version": "0.0.2",
+  "homepage": "https://github.com/bahmutov/console.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "index.js"
+  ],
+  "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
+  "keywords": [
+    "console",
+    "json",
+    "stringify"
+  ]
+}
