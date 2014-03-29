@@ -42,6 +42,15 @@ module.exports = function (grunt) {
           'dist/index.html': 'index.html'
         }
       }
+    },
+
+    'clean-console': {
+      all: {
+        options: {
+          url: 'dist/index.html',
+          timeout: 1
+        }
+      }
     }
   });
 
@@ -49,5 +58,6 @@ module.exports = function (grunt) {
   plugins.forEach(grunt.loadNpmTasks);
 
   grunt.registerTask('browser', ['sync', 'concat', 'copy']);
-  grunt.registerTask('default', ['deps-ok', 'nice-package', 'jshint', 'browser']);
+  grunt.registerTask('default', ['deps-ok', 'nice-package', 'jshint',
+    'browser', 'clean-console']);
 };
