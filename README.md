@@ -22,6 +22,10 @@ console.html('<body><h1>Hello, world!</h1></body>');
 </body>
 console.html($('#selector'));
 // prints nicely formatted HTML from jQuery / D3 selectors
+// that have .html() method
+console.html($('#one'), $(#two));
+// outputs formatted HTML for each selector,
+// second selector starts on new line
 ```
 
 ### Small print
