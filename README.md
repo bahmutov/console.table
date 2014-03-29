@@ -12,7 +12,7 @@ Install: `npm install console.html --save`
 
 Use:
 
-```js
+```
 // call once somewhere in the beginning
 require('console.html');
 console.html('<body><h1>Hello, world!</h1></body>');
@@ -20,9 +20,9 @@ console.html('<body><h1>Hello, world!</h1></body>');
 <body>
   <h1>Hello, world!</h1>
 </body>
-```
 console.html($('#selector'));
 // prints nicely formatted HTML from jQuery / D3 selectors
+```
 
 ### Small print
 

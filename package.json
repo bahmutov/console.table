@@ -6,6 +6,9 @@
   "bugs": {
     "url": "https://github.com/bahmutov/console.html/issues"
   },
+  "dependencies": {
+    "js-beautify": "^1.4.2"
+  },
   "devDependencies": {
     "grunt": "^0.4.4",
     "grunt-contrib-jshint": "^0.9.2",
@@ -34,8 +37,6 @@
   },
   "scripts": {
     "test": "node test/test.js"
-  },
-  "dependencies": {
-    "js-beautify": "^1.4.2"
   }
 }
+
