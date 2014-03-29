@@ -1,50 +1,28 @@
-# console.json
+# console.html
 
-> Adds console.json method for convenience
+> Adds console.html method for convenience
 
-[![NPM][console.json-icon] ][console.json-url]
+[![NPM][console.html-icon] ][console.html-url]
 
-[![Build status][console.json-ci-image] ][console.json-ci-url]
-[![dependencies][console.json-dependencies-image] ][console.json-dependencies-url]
-[![devdependencies][console.json-devdependencies-image] ][console.json-devdependencies-url]
+[![Build status][console.html-ci-image] ][console.html-ci-url]
+[![dependencies][console.html-dependencies-image] ][console.html-dependencies-url]
+[![devdependencies][console.html-devdependencies-image] ][console.html-devdependencies-url]
 
-Install: `npm install console.json --save`
+Install: `npm install console.html --save`
 
 Use:
 
 ```js
 // call once somewhere in the beginning
-require('console.json');
-var foo = {
-    n: 21,
-    bar: {
-      a: ['first', 'second']
-    }
-};
-// console.json('foo', foo); prints
-foo {
-  "n": 21,
-  "bar": {
-    "a": [
-      "first",
-      "second"
-    ]
-  }
-}
-// console.log('foo', foo) prints
-foo { n: 21, bar: { a: [ 'first', 'second' ] } }
+require('console.html');
+console.html('<body><h1>Hello, world!</h1></body>');
+// prints
+<body>
+  <h1>Hello, world!</h1>
+</body>
 ```
-## Options
-
-You can pass arguments to be used inside `JSON.stringify` to `console.json`
-
-```js
-require('console.json')(null, 4);
-// aligns printed properties using 4 spaces
-```
-
-For exact meaning of these two arguments, see
-[JSON.stringify](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)
+console.html($('#selector'));
+// prints nicely formatted HTML from jQuery / D3 selectors
 
 ### Small print
 
@@ -59,7 +37,7 @@ License: MIT - do anything with the code, but don't blame me if it does not work
 Spread the word: tweet, star on github, etc.
 
 Support: if you find any problems with this module, email / tweet /
-[open issue](https://github.com/bahmutov/console.json/issues) on Github
+[open issue](https://github.com/bahmutov/console.html/issues) on Github
 
 ## MIT License
 
@@ -86,11 +64,11 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 
-[console.json-icon]: https://nodei.co/npm/console.json.png?downloads=true
-[console.json-url]: https://npmjs.org/package/console.json
-[console.json-ci-image]: https://travis-ci.org/bahmutov/console.json.png?branch=master
-[console.json-ci-url]: https://travis-ci.org/bahmutov/console.json
-[console.json-dependencies-image]: https://david-dm.org/bahmutov/console.json.png
-[console.json-dependencies-url]: https://david-dm.org/bahmutov/console.json
-[console.json-devdependencies-image]: https://david-dm.org/bahmutov/console.json/dev-status.png
-[console.json-devdependencies-url]: https://david-dm.org/bahmutov/console.json#info=devDependencies
+[console.html-icon]: https://nodei.co/npm/console.html.png?downloads=true
+[console.html-url]: https://npmjs.org/package/console.html
+[console.html-ci-image]: https://travis-ci.org/bahmutov/console.html.png?branch=master
+[console.html-ci-url]: https://travis-ci.org/bahmutov/console.html
+[console.html-dependencies-image]: https://david-dm.org/bahmutov/console.html.png
+[console.html-dependencies-url]: https://david-dm.org/bahmutov/console.html
+[console.html-devdependencies-image]: https://david-dm.org/bahmutov/console.html/dev-status.png
+[console.html-devdependencies-url]: https://david-dm.org/bahmutov/console.html#info=devDependencies
