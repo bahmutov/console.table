@@ -32,7 +32,6 @@
   "license": "MIT",
   "main": "index.js",
   "pre-commit": [
-    "grunt",
     "npm test"
   ],
   "repository": {
@@ -40,7 +39,7 @@
     "url": "git@github.com:bahmutov/console.html.git"
   },
   "scripts": {
-    "test": "node test/test.js"
+    "test": "node test/test.js && grunt"
   }
 }
 
