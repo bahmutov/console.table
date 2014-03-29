@@ -8,9 +8,14 @@
 [![dependencies][console.html-dependencies-image] ][console.html-dependencies-url]
 [![devdependencies][console.html-devdependencies-image] ][console.html-devdependencies-url]
 
-Install: `npm install console.html --save`
+Install:
 
-Use:
+```
+npm install console.html --save
+bower install console.html --save
+```
+
+Use in Node:
 
 ```
 // call once somewhere in the beginning
@@ -26,6 +31,16 @@ console.html($('#selector'));
 console.html($('#one'), $(#two));
 // outputs formatted HTML for each selector,
 // second selector starts on new line
+```
+
+Use in browser:
+
+```html
+<script src="bower_components/console.html/dist/console.html.js"></script>
+<script>
+console.html($('#divId'));
+console.html(document.getElementById('divId'));
+</script>
 ```
 
 ### Small print
