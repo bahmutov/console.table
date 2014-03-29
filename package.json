@@ -26,8 +26,10 @@
   "homepage": "https://github.com/bahmutov/console.html",
   "keywords": [
     "console",
-    "json",
-    "stringify"
+    "html",
+    "beautify",
+    "node",
+    "browser"
   ],
   "license": "MIT",
   "main": "index.js",

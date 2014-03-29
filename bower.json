@@ -15,7 +15,9 @@
   "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
   "keywords": [
     "console",
-    "json",
-    "stringify"
+    "html",
+    "beautify",
+    "node",
+    "browser"
   ]
 }
