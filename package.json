@@ -44,7 +44,8 @@
     "url": "git@github.com:bahmutov/console.html.git"
   },
   "scripts": {
-    "test": "node test/test.js && grunt"
+    "test": "node test/test.js && grunt && npm run unit",
+    "unit": "node node_modules/mocha/bin/mocha -R spec"
   }
 }
 
