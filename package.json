@@ -21,7 +21,10 @@
     "jshint-stylish": "^0.1.5",
     "matchdep": "^0.3.0",
     "pre-git": "0.0.15",
-    "time-grunt": "^0.3.1"
+    "time-grunt": "^0.3.1",
+    "mocha": "^1.18.2",
+    "expect.js": "^0.3.1",
+    "sinon": "^1.9.0"
   },
   "homepage": "https://github.com/bahmutov/console.html",
   "keywords": [
@@ -44,4 +47,3 @@
     "test": "node test/test.js && grunt"
   }
 }
-

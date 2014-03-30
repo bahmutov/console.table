@@ -9,3 +9,4 @@ var foo = {
   }
 };
 console.html('several arguments', '<h1>hi again</h1>', foo);
+delete console.html;
