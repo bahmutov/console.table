@@ -3,6 +3,8 @@ module.exports = function (grunt) {
   module.require('time-grunt')(grunt);
 
   grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
+
     'nice-package': {
       all: {
         options: {
@@ -36,11 +38,32 @@ module.exports = function (grunt) {
       }
     },
 
+    uglify: {
+      dist: {
+        files: {
+          'dist/console.html.min.js': ['dist/console.html.js']
+        }
+      }
+    },
+
     'clean-console': {
       all: {
         options: {
-          url: 'index.html',
+          url: ['index.html', 'index.min.html'],
           timeout: 1
+        }
+      }
+    },
+
+    usebanner: {
+      taskName: {
+        options: {
+          position: 'top',
+          banner: '/*! <%= pkg.name %>@<%= pkg.version %> - <%= pkg.description %> ' +
+            '<%= grunt.template.today("dd-mm-yyyy") %> */',
+        },
+        files: {
+          src: ['dist/console.html.js', 'dist/console.html.min.js']
         }
       }
     }
@@ -51,5 +74,5 @@ module.exports = function (grunt) {
 
   grunt.registerTask('browser', ['sync', 'concat']);
   grunt.registerTask('default', ['deps-ok', 'nice-package', 'jshint',
-    'browser', 'clean-console']);
+    'browser', 'uglify', 'usebanner', 'clean-console']);
 };

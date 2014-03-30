@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>console.html</title>
+    <script src="dist/console.html.min.js"></script>
+  </head>
+  <body>
+    <div id="example">
+      <p>This is <strong>console.html</strong> minified example.
+      Open JavaScript console and look a the output</p>
+    </div>
+    <script>
+    if (typeof console.html !== 'function') {
+      throw new Error('Cannot find console.html function');
+    }
+    console.log('printing document.body');
+    console.html(document.body);
+    </script>
+  </body>
+</html>
