@@ -1,7 +1,7 @@
 {
   "name": "console.html",
   "main": "index.js",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "homepage": "https://github.com/bahmutov/console.html",
   "license": "MIT",
   "ignore": [
@@ -11,9 +11,9 @@
     "test",
     "tests",
     "index.js",
-    "./Gruntfile.js",
-    "./package.json",
-    "./index.html"
+    "Gruntfile.js",
+    "package.json",
+    "index.html"
   ],
   "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
   "keywords": [

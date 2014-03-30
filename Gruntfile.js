@@ -36,18 +36,10 @@ module.exports = function (grunt) {
       }
     },
 
-    copy: {
-      dist: {
-        files: {
-          'dist/index.html': 'index.html'
-        }
-      }
-    },
-
     'clean-console': {
       all: {
         options: {
-          url: 'dist/index.html',
+          url: 'index.html',
           timeout: 1
         }
       }
@@ -57,7 +49,7 @@ module.exports = function (grunt) {
   var plugins = module.require('matchdep').filterDev('grunt-*');
   plugins.forEach(grunt.loadNpmTasks);
 
-  grunt.registerTask('browser', ['sync', 'concat', 'copy']);
+  grunt.registerTask('browser', ['sync', 'concat']);
   grunt.registerTask('default', ['deps-ok', 'nice-package', 'jshint',
     'browser', 'clean-console']);
 };
