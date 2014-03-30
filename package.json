@@ -1,7 +1,7 @@
 {
   "name": "console.html",
   "description": "Adds console.html method that can beautifully output HTML string / HTMLNode",
-  "version": "0.0.6",
+  "version": "0.1.0",
   "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
   "bugs": {
     "url": "https://github.com/bahmutov/console.html/issues"

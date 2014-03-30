@@ -1,4 +1,4 @@
-/*! console.html@0.0.6 - Adds console.html method that can beautifully output HTML string / HTMLNode 30-03-2014 */
+/*! console.html@0.1.0 - Adds console.html method that can beautifully output HTML string / HTMLNode 30-03-2014 */
 /*jshint curly:true, eqeqeq:true, laxbreak:true, noempty:false */
 /*
 
