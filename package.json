@@ -1,7 +1,7 @@
 {
   "name": "console.html",
   "description": "Adds console.html method that can beautifully output HTML string / HTMLNode",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
   "bugs": {
     "url": "https://github.com/bahmutov/console.html/issues"
@@ -10,6 +10,7 @@
     "js-beautify": "^1.4.2"
   },
   "devDependencies": {
+    "expect.js": "^0.3.1",
     "grunt": "^0.4.4",
     "grunt-clean-console": "^0.1.1",
     "grunt-contrib-concat": "^0.3.0",
@@ -20,11 +21,10 @@
     "grunt-npm2bower-sync": "^0.3.0",
     "jshint-stylish": "^0.1.5",
     "matchdep": "^0.3.0",
-    "pre-git": "0.0.15",
-    "time-grunt": "^0.3.1",
     "mocha": "^1.18.2",
-    "expect.js": "^0.3.1",
-    "sinon": "^1.9.0"
+    "pre-git": "0.0.15",
+    "sinon": "^1.9.0",
+    "time-grunt": "^0.3.1"
   },
   "homepage": "https://github.com/bahmutov/console.html",
   "keywords": [
@@ -47,3 +47,4 @@
     "test": "node test/test.js && grunt"
   }
 }
+
