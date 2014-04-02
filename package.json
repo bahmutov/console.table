@@ -50,7 +50,7 @@
   "scripts": {
     "test": "node test/test.js && grunt && npm run unit",
     "unit": "node node_modules/mocha/bin/mocha -R spec",
-    "demo": "node index.js test/test.js"
+    "demo": "node test/test.js"
   }
 }
 

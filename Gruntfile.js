@@ -72,7 +72,6 @@ module.exports = function (grunt) {
   var plugins = module.require('matchdep').filterDev('grunt-*');
   plugins.forEach(grunt.loadNpmTasks);
 
-  grunt.registerTask('browser', ['sync', 'concat']);
-  grunt.registerTask('default', ['deps-ok', 'nice-package', 'jshint',
-    'browser', 'uglify', 'usebanner', 'clean-console']);
+  grunt.registerTask('browser', ['sync', 'concat', 'uglify', 'usebanner']);
+  grunt.registerTask('default', ['deps-ok', 'nice-package', 'jshint', 'browser']);
 };

@@ -5,15 +5,19 @@ console.assert(typeof console.table === 'function',
 
 var names = [
   {
-    name: 'foo'
+    name: 'foo',
+    age: 10
   },
   {
-    name: 'bar'
+    name: 'bar',
+    age: 20
   },
   {
-    name: 'baz'
+    name: 'baz',
+    age: 30
   }
 ];
 
+console.log('printing');
 console.table('console.table can print arrays', [1, 'foo', 2], 'and arrays of objects', names);
 delete console.table;

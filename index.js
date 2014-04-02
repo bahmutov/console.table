@@ -1,14 +1,6 @@
 (function () {
   'use strict';
 
-  /* global window */
-  var beautify = (typeof require === 'function' && require('js-beautify').html) ||
-    (typeof window !== 'undefined' && window.html_beautify);
-  if (typeof beautify !== 'function') {
-    throw new Error('missing HTML beautify function');
-  }
-  var Table = require('easy-table');
-
   function setupConsoleTable() {
     if (typeof console === 'undefined') {
       throw new Error('Weird, console object is undefined');
@@ -17,6 +9,7 @@
       return;
     }
 
+    var Table = require('easy-table');
     console.table = function () {
       var args = Array.prototype.slice.call(arguments);
       args.forEach(function (k) {
