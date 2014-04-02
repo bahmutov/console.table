@@ -40,6 +40,11 @@ console.table([{name: 'foo'}, {name: 'bar'}]);
 </script>
 ```
 
+## Details
+
+Uses [easy-table](https://www.npmjs.org/package/easy-table) for printing
+to console.log
+
 ### Small print
 
 Author: Gleb Bahmutov &copy; 2014
