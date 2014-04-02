@@ -1,7 +1,7 @@
 {
   "name": "console.table",
   "description": "Adds console.table method that prints an array of objects as a table in console",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
   "bugs": {
     "url": "https://github.com/bahmutov/console.table/issues"
@@ -53,3 +53,4 @@
     "demo": "node test/test.js"
   }
 }
+
