@@ -1,45 +1,42 @@
-# console.html
+# console.table
 
-> Adds console.html method for convenience
+> Adds console.table method for convenience
 
-[![NPM][console.html-icon] ][console.html-url]
+[![NPM][console.table-icon] ][console.table-url]
 
-[![Build status][console.html-ci-image] ][console.html-ci-url]
-[![dependencies][console.html-dependencies-image] ][console.html-dependencies-url]
-[![devdependencies][console.html-devdependencies-image] ][console.html-devdependencies-url]
+[![Build status][console.table-ci-image] ][console.table-ci-url]
+[![dependencies][console.table-dependencies-image] ][console.table-dependencies-url]
+[![devdependencies][console.table-devdependencies-image] ][console.table-devdependencies-url]
 
 Install:
 
 ```
-npm install console.html --save
-bower install console.html --save
+npm install console.table --save
+bower install console.table --save
 ```
 
 Use in Node:
 
 ```
 // call once somewhere in the beginning
-require('console.html');
-console.html('<body><h1>Hello, world!</h1></body>');
+require('console.table');
+console.table(console.table([{name: 'foo'}, {name: 'bar'}]););
 // prints
-<body>
-  <h1>Hello, world!</h1>
-</body>
-console.html($('#selector'));
-// prints nicely formatted HTML from jQuery / D3 selectors
-// that have .html() method
-console.html($('#one'), $(#two));
-// outputs formatted HTML for each selector,
-// second selector starts on new line
+name
+----
+foo
+bar
 ```
 
-Use in browser:
+You can pass multiple strigs, arrays to single console.table
+Each argument will be formatted and printed separately on new line
+
+Use in browser: **INCOMPLETE, PROBABLY CHROME ONLY FOR NOW**
 
 ```html
-<script src="bower_components/console.html/dist/console.html.js"></script>
+<script src="bower_components/console.table/dist/console.table.js"></script>
 <script>
-console.html($('#divId'));
-console.html(document.getElementById('divId'));
+console.table([{name: 'foo'}, {name: 'bar'}]);
 </script>
 ```
 
@@ -56,7 +53,7 @@ License: MIT - do anything with the code, but don't blame me if it does not work
 Spread the word: tweet, star on github, etc.
 
 Support: if you find any problems with this module, email / tweet /
-[open issue](https://github.com/bahmutov/console.html/issues) on Github
+[open issue](https://github.com/bahmutov/console.table/issues) on Github
 
 ## MIT License
 
@@ -83,11 +80,11 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 
-[console.html-icon]: https://nodei.co/npm/console.html.png?downloads=true
-[console.html-url]: https://npmjs.org/package/console.html
-[console.html-ci-image]: https://travis-ci.org/bahmutov/console.html.png?branch=master
-[console.html-ci-url]: https://travis-ci.org/bahmutov/console.html
-[console.html-dependencies-image]: https://david-dm.org/bahmutov/console.html.png
-[console.html-dependencies-url]: https://david-dm.org/bahmutov/console.html
-[console.html-devdependencies-image]: https://david-dm.org/bahmutov/console.html/dev-status.png
-[console.html-devdependencies-url]: https://david-dm.org/bahmutov/console.html#info=devDependencies
+[console.table-icon]: https://nodei.co/npm/console.table.png?downloads=true
+[console.table-url]: https://npmjs.org/package/console.table
+[console.table-ci-image]: https://travis-ci.org/bahmutov/console.table.png?branch=master
+[console.table-ci-url]: https://travis-ci.org/bahmutov/console.table
+[console.table-dependencies-image]: https://david-dm.org/bahmutov/console.table.png
+[console.table-dependencies-url]: https://david-dm.org/bahmutov/console.table
+[console.table-devdependencies-image]: https://david-dm.org/bahmutov/console.table/dev-status.png
+[console.table-devdependencies-url]: https://david-dm.org/bahmutov/console.table#info=devDependencies
