@@ -34,14 +34,14 @@ module.exports = function (grunt) {
     concat: {
       dist: {
         src: ['node_modules/js-beautify/js/lib/beautify-html.js', 'index.js'],
-        dest: 'dist/console.html.js'
+        dest: 'dist/console.table.js'
       }
     },
 
     uglify: {
       dist: {
         files: {
-          'dist/console.html.min.js': ['dist/console.html.js']
+          'dist/console.table.min.js': ['dist/console.table.js']
         }
       }
     },
@@ -49,7 +49,7 @@ module.exports = function (grunt) {
     'clean-console': {
       all: {
         options: {
-          url: ['index.html', 'index.min.html'],
+          url: ['index.table', 'index.min.html'],
           timeout: 1
         }
       }

@@ -1,12 +1,19 @@
 require('..');
 
-console.assert(typeof console.html === 'function',
-  'installed a function');
-console.html('<body><h1>hi</h1></body>');
-var foo = {
-  html: function () {
-    return '<foo>bar</foo>';
+console.assert(typeof console.table === 'function',
+  'console.table is a function');
+
+var names = [
+  {
+    name: 'foo'
+  },
+  {
+    name: 'bar'
+  },
+  {
+    name: 'baz'
   }
-};
-console.html('several arguments', '<h1>hi again</h1>', foo);
-delete console.html;
+];
+
+console.table('console.table can print arrays', [1, 'foo', 2], 'and arrays of objects', names);
+delete console.table;

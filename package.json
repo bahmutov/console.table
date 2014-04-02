@@ -1,15 +1,17 @@
 {
-  "name": "console.html",
-  "description": "Adds console.html method that can beautifully output HTML string / HTMLNode",
+  "name": "console.table",
+  "description": "Adds console.table method that prints an array of objects as a table in console",
   "version": "0.1.0",
   "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
   "bugs": {
-    "url": "https://github.com/bahmutov/console.html/issues"
+    "url": "https://github.com/bahmutov/console.table/issues"
   },
   "dependencies": {
+    "easy-table": "^0.3.0",
     "js-beautify": "^1.4.2"
   },
   "devDependencies": {
+    "better-assert": "^1.0.0",
     "expect.js": "^0.3.1",
     "grunt": "^0.4.4",
     "grunt-banner": "^0.2.2",
@@ -28,7 +30,7 @@
     "sinon": "^1.9.0",
     "time-grunt": "^0.3.1"
   },
-  "homepage": "https://github.com/bahmutov/console.html",
+  "homepage": "https://github.com/bahmutov/console.table",
   "keywords": [
     "console",
     "html",
@@ -43,11 +45,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:bahmutov/console.html.git"
+    "url": "git@github.com:bahmutov/console.table.git"
   },
   "scripts": {
     "test": "node test/test.js && grunt && npm run unit",
-    "unit": "node node_modules/mocha/bin/mocha -R spec"
+    "unit": "node node_modules/mocha/bin/mocha -R spec",
+    "demo": "node index.js test/test.js"
   }
 }
 

@@ -1,25 +1,44 @@
 var expect = require('expect.js');
+var assert = require('better-assert');
 var sinon = require('sinon');
 
-describe('console.html', function () {
+describe('console.table', function () {
   beforeEach(function () {
     // make sure the module is loaded without caching
     delete require.cache[require.resolve('../index')];
   });
 
   afterEach(function () {
-    delete console.html;
+    delete console.table;
   });
 
   it('fills missing method', function () {
-    expect(console.html).to.be(undefined);
+    expect(console.table).to.be(undefined);
   });
 
   it('installs html method', function () {
     require('../index');
-    expect(typeof console.html).to.be('function');
+    expect(typeof console.table).to.be('function');
   });
 
+  it('logs simple string', function () {
+    require('../index');
+    sinon.spy(console, 'log');
+    console.table('foo');
+    assert(console.log.firstCall.calledWith('foo'));
+    console.log.restore();
+  });
+
+  it('logs several strings separately', function () {
+    require('../index');
+    sinon.spy(console, 'log');
+    console.table('foo', 'bar');
+    assert(console.log.firstCall.calledWith('foo'));
+    assert(console.log.secondCall.calledWith('bar'));
+    console.log.restore();
+  });
+
+/*
   it('calls console.log ultimately', function () {
     require('../index');
     sinon.spy(console, 'log');
@@ -62,4 +81,5 @@ describe('console.html', function () {
     expect(console.log.called).to.be(false);
     console.log.restore();
   });
+*/
 });
