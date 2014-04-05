@@ -20,12 +20,18 @@ Use in Node:
 ```
 // call once somewhere in the beginning
 require('console.table');
-console.table(console.table([{name: 'foo'}, {name: 'bar'}]););
+console.table(console.table([{
+    name: 'foo',
+    age: 10
+  }, {
+    name: 'bar',
+    age: 20
+  }]);
 // prints
-name
-----
-foo
-bar
+name  age
+----  ---
+foo   10
+bar   20
 ```
 
 You can pass multiple strigs, arrays to single console.table
