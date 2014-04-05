@@ -18,15 +18,18 @@ bower install console.table --save
 Use in Node:
 
 ```
-// call once somewhere in the beginning
+// call once somewhere in the beginning of the app
 require('console.table');
-console.table(console.table([{
+console.table([
+  {
     name: 'foo',
     age: 10
   }, {
     name: 'bar',
     age: 20
-  }]);
+  }
+]);
+
 // prints
 name  age
 ----  ---
@@ -34,7 +37,7 @@ foo   10
 bar   20
 ```
 
-You can pass multiple strigs, arrays to single console.table
+You can pass multiple strings and arrays in a single console.table call.
 Each argument will be formatted and printed separately on new line
 
 Use in browser: **INCOMPLETE, PROBABLY CHROME ONLY FOR NOW**
