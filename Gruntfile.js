@@ -66,12 +66,32 @@ module.exports = function (grunt) {
           src: ['dist/console.html.js', 'dist/console.html.min.js']
         }
       }
+    },
+
+    mochaTest: {
+      test: {
+        options: {
+          reporter: 'spec'
+        },
+        src: ['test/*.js']
+      }
+    },
+
+    watch: {
+      options: {
+        atBegin: true
+      },
+      all: {
+        files: ['*.js', 'test/*.js'],
+        tasks: ['test']
+      }
     }
   });
 
   var plugins = module.require('matchdep').filterDev('grunt-*');
   plugins.forEach(grunt.loadNpmTasks);
 
+  grunt.registerTask('test', ['jshint', 'mochaTest']);
   grunt.registerTask('browser', ['sync', 'concat', 'uglify', 'usebanner']);
   grunt.registerTask('default', ['deps-ok', 'nice-package', 'jshint', 'browser']);
 };
