@@ -6,6 +6,7 @@
   "bugs": {
     "url": "https://github.com/bahmutov/console.table/issues"
   },
+  "contributors": [],
   "dependencies": {
     "easy-table": "^0.3.0"
   },
@@ -22,7 +23,7 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-deps-ok": "^0.1.8",
     "grunt-mocha-test": "^0.10.0",
-    "grunt-nice-package": "^0.3.0",
+    "grunt-nice-package": "^0.4.0",
     "grunt-npm2bower-sync": "^0.3.0",
     "jshint-stylish": "^0.1.5",
     "matchdep": "^0.3.0",
@@ -30,6 +31,9 @@
     "pre-git": "0.0.15",
     "sinon": "^1.9.1",
     "time-grunt": "^0.3.1"
+  },
+  "engines": {
+    "node": "> 0.8"
   },
   "homepage": "https://github.com/bahmutov/console.table",
   "keywords": [
@@ -54,3 +58,4 @@
     "demo": "node test/test.js"
   }
 }
+
