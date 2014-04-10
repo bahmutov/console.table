@@ -54,6 +54,21 @@ console.table([{name: 'foo'}, {name: 'bar'}]);
 Uses [easy-table](https://www.npmjs.org/package/easy-table) for printing
 to console.log
 
+If first argument is a string, and a second argument is an array, prints
+title row
+
+```
+console.table('Several objects', [...]);
+
+Several objects
+---------------
+name  age
+----  ---
+foo   10
+bar   20
+baz   30
+```
+
 ### Small print
 
 Author: Gleb Bahmutov &copy; 2014

@@ -93,5 +93,5 @@ module.exports = function (grunt) {
 
   grunt.registerTask('test', ['jshint', 'mochaTest']);
   grunt.registerTask('browser', ['sync', 'concat', 'uglify', 'usebanner']);
-  grunt.registerTask('default', ['deps-ok', 'nice-package', 'jshint', 'browser']);
+  grunt.registerTask('default', ['deps-ok', 'nice-package', 'test', 'browser']);
 };

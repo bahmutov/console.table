@@ -850,26 +850,55 @@
     }
 
     var Table = require('easy-table');
+
+    function arrayToString(arr) {
+      var t = new Table();
+      arr.forEach(function (record) {
+        if (typeof record === 'string' ||
+          typeof record === 'number') {
+          t.cell('item', record);
+        } else {
+          // assume plain object
+          Object.keys(record).forEach(function (property) {
+            t.cell(property, record[property]);
+          });
+        }
+        t.newRow();
+      });
+      return t.toString();
+    }
+
+    function printTitleTable(title, arr) {
+      var str = arrayToString(arr);
+      var rowLength = str.indexOf('\n');
+      if (rowLength > 0) {
+        if (title.length > rowLength) {
+          rowLength = title.length;
+        }
+        console.log(title);
+        var sep = '-', k, line = '';
+        for (k = 0; k < rowLength; k += 1) {
+          line += sep;
+        }
+        console.log(line);
+      }
+      console.log(str);
+    }
+
     console.table = function () {
       var args = Array.prototype.slice.call(arguments);
+
+      if (args.length === 2 &&
+        typeof args[0] === 'string' &&
+        Array.isArray(args[1])) {
+
+        return printTitleTable(args[0], args[1]);
+      }
       args.forEach(function (k) {
         if (typeof k === 'string') {
           return console.log(k);
         } else if (Array.isArray(k)) {
-          var t = new Table();
-          k.forEach(function (record) {
-            if (typeof record === 'string' ||
-              typeof record === 'number') {
-              t.cell('item', record);
-            } else {
-              // assume plain object
-              Object.keys(record).forEach(function (property) {
-                t.cell(property, record[property]);
-              });
-            }
-            t.newRow();
-          });
-          console.log(t.toString());
+          console.log(arrayToString(k));
         }
       });
     };
