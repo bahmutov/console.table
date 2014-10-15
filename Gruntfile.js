@@ -1,4 +1,4 @@
-/* global module, require */
+/* global module */
 module.exports = function (grunt) {
   module.require('time-grunt')(grunt);
 
@@ -15,8 +15,7 @@ module.exports = function (grunt) {
 
     jshint: {
       'options': {
-        jshintrc: '.jshintrc',
-        reporter: require('jshint-stylish')
+        jshintrc: '.jshintrc'
       },
       default: {
         'src': [ '*.js', 'test/*.js' ]
