@@ -8,29 +8,29 @@
   },
   "contributors": [],
   "dependencies": {
-    "easy-table": "^0.3.0"
+    "easy-table": "0.3.0"
   },
   "devDependencies": {
-    "better-assert": "^1.0.0",
-    "expect.js": "^0.3.1",
-    "grunt": "^0.4.4",
-    "grunt-banner": "^0.2.2",
-    "grunt-clean-console": "^0.1.1",
-    "grunt-contrib-concat": "^0.4.0",
-    "grunt-contrib-copy": "^0.5.0",
-    "grunt-contrib-jshint": "^0.10.0",
-    "grunt-contrib-uglify": "^0.4.0",
-    "grunt-contrib-watch": "^0.6.1",
-    "grunt-deps-ok": "^0.1.8",
-    "grunt-mocha-test": "^0.10.0",
-    "grunt-nice-package": "^0.4.0",
-    "grunt-npm2bower-sync": "^0.3.0",
-    "jshint-stylish": "^0.1.5",
-    "matchdep": "^0.3.0",
-    "mocha": "^1.18.2",
+    "better-assert": "1.0.0",
+    "expect.js": "0.3.1",
+    "grunt": "0.4.5",
+    "grunt-banner": "0.2.2",
+    "grunt-clean-console": "0.1.1",
+    "grunt-contrib-concat": "0.4.0",
+    "grunt-contrib-copy": "0.5.0",
+    "grunt-contrib-jshint": "0.10.0",
+    "grunt-contrib-uglify": "0.4.0",
+    "grunt-contrib-watch": "0.6.1",
+    "grunt-deps-ok": "0.1.8",
+    "grunt-mocha-test": "0.10.0",
+    "grunt-nice-package": "0.9.2",
+    "grunt-npm2bower-sync": "0.3.0",
+    "jshint-stylish": "0.1.5",
+    "matchdep": "0.3.0",
+    "mocha": "1.18.2",
     "pre-git": "0.0.15",
-    "sinon": "^1.9.1",
-    "time-grunt": "^0.3.1"
+    "sinon": "1.9.1",
+    "time-grunt": "0.3.1"
   },
   "engines": {
     "node": "> 0.8"
@@ -58,4 +58,3 @@
     "demo": "node test/test.js"
   }
 }
-
