@@ -1,7 +1,7 @@
 {
   "name": "console.table",
   "description": "Adds console.table method that prints an array of objects as a table in console",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
   "bugs": {
     "url": "https://github.com/bahmutov/console.table/issues"
@@ -32,7 +32,7 @@
     "time-grunt": "1.0.0"
   },
   "engines": {
-    "node": "> 0.8"
+    "node": "> 0.10"
   },
   "homepage": "https://github.com/bahmutov/console.table",
   "keywords": [
