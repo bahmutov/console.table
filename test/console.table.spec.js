@@ -62,3 +62,23 @@ describe('console.table', function () {
     console.table('Several objects', objects);
   });
 });
+
+describe('console.table object', function () {
+  beforeEach(function () {
+    // make sure the module is loaded without caching
+    delete require.cache[require.resolve('../index')];
+    require('../index');
+  });
+
+  afterEach(function () {
+    delete console.table;
+  });
+
+  it('prints an object', function () {
+    console.table({ foo: 'foo', bar: 'bar' });
+  });
+
+  it('prints an object', function () {
+    console.table('this is an object', { foo: 'foo', bar: 'bar' });
+  });
+});

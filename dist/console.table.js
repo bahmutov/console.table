@@ -45,6 +45,20 @@
       console.log(str);
     }
 
+    function objectToArray(obj) {
+      var keys = Object.keys(obj);
+      return keys.map(function (key) {
+        return {
+          key: key,
+          value: obj[key]
+        };
+      });
+    }
+
+    function objectToString(obj) {
+      return arrayToString(objectToArray(obj));
+    }
+
     console.table = function () {
       var args = Array.prototype.slice.call(arguments);
 
@@ -59,6 +73,8 @@
           return console.log(k);
         } else if (Array.isArray(k)) {
           console.log(arrayToString(k));
+        } else if (typeof k === 'object') {
+          console.log(objectToString(k));
         }
       });
     };
