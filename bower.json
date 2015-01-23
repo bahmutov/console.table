@@ -2,7 +2,7 @@
   "name": "console.table",
   "main": "index.js",
   "version": "0.4.0",
-  "homepage": "https://github.com/bahmutov/console.html",
+  "homepage": "https://github.com/bahmutov/console.table",
   "license": "MIT",
   "ignore": [
     "**/.*",
@@ -15,12 +15,15 @@
     "package.json",
     "index.html"
   ],
-  "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
   "keywords": [
     "console",
     "html",
     "beautify",
     "node",
     "browser"
+  ],
+  "description": "Adds console.table method that prints an array of objects as a table in console",
+  "authors": [
+    "Gleb Bahmutov <gleb.bahmutov@gmail.com>"
   ]
 }
