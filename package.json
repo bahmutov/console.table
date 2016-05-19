@@ -59,6 +59,12 @@
   ],
   "license": "MIT",
   "main": "index.js",
+  "files": [
+    "index.js",
+    "bower.json",
+    "LICENSE-MIT",
+    "dist"
+  ],
   "release": {
     "verifyConditions": {
       "path": "condition-node-version",
@@ -73,6 +79,7 @@
     "commit": "commit-wizard",
     "demo": "node test/test.js",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "size": "t=\"$(npm pack .)\"; wc -c \"${t}\"; tar tvf \"${t}\"; rm \"${t}\";",
     "test": "node test/test.js && grunt && npm run unit",
     "unit": "node node_modules/mocha/bin/mocha -R spec"
   }
