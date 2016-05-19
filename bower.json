@@ -16,11 +16,11 @@
     "index.html"
   ],
   "keywords": [
+    "beautify",
+    "browser",
     "console",
     "html",
-    "beautify",
-    "node",
-    "browser"
+    "node"
   ],
   "description": "Adds console.table method that prints an array of objects as a table in console",
   "authors": [

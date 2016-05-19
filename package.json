@@ -6,6 +6,18 @@
   "bugs": {
     "url": "https://github.com/bahmutov/console.table/issues"
   },
+  "config": {
+    "pre-git": {
+      "commit-msg": "simple",
+      "pre-commit": [
+        "npm test"
+      ],
+      "pre-push": [],
+      "post-commit": [],
+      "post-checkout": [],
+      "post-merge": []
+    }
+  },
   "contributors": [],
   "dependencies": {
     "easy-table": "0.3.0"
@@ -25,11 +37,11 @@
     "grunt-contrib-watch": "0.6.1",
     "grunt-deps-ok": "0.5.2",
     "grunt-mocha-test": "0.12.7",
-    "grunt-nice-package": "0.9.2",
+    "grunt-nice-package": "0.10.2",
     "grunt-npm2bower-sync": "0.8.1",
     "matchdep": "0.3.0",
-    "mocha": "2.1.0",
-    "pre-git": "0.1.1",
+    "mocha": "2.4.5",
+    "pre-git": "3.8.4",
     "semantic-release": "4.3.5",
     "sinon": "1.12.2",
     "time-grunt": "1.0.0"
@@ -37,33 +49,31 @@
   "engines": {
     "node": "> 0.10"
   },
+  "homepage": "https://github.com/bahmutov/console.table",
+  "keywords": [
+    "beautify",
+    "browser",
+    "console",
+    "html",
+    "node"
+  ],
+  "license": "MIT",
+  "main": "index.js",
   "release": {
     "verifyConditions": {
       "path": "condition-node-version",
       "node": "6"
     }
   },
-  "homepage": "https://github.com/bahmutov/console.table",
-  "keywords": [
-    "console",
-    "html",
-    "beautify",
-    "node",
-    "browser"
-  ],
-  "license": "MIT",
-  "main": "index.js",
-  "pre-commit": [
-    "npm test"
-  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/bahmutov/console.table.git"
   },
   "scripts": {
-    "test": "node test/test.js && grunt && npm run unit",
-    "unit": "node node_modules/mocha/bin/mocha -R spec",
+    "commit": "commit-wizard",
     "demo": "node test/test.js",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "test": "node test/test.js && grunt && npm run unit",
+    "unit": "node node_modules/mocha/bin/mocha -R spec"
   }
 }
