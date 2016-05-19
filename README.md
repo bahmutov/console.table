@@ -7,15 +7,16 @@
 [![Build status][console.table-ci-image] ][console.table-ci-url]
 [![dependencies][console.table-dependencies-image] ][console.table-dependencies-url]
 [![devdependencies][console.table-devdependencies-image] ][console.table-devdependencies-url]
+[![semantic-release][semantic-image] ][semantic-url]
 
-Install:
+## Install
 
 ```
 npm install console.table --save
 bower install console.table --save
 ```
 
-Use in Node:
+## Use in Node
 
 ```
 // call once somewhere in the beginning of the app
@@ -40,7 +41,9 @@ bar   20
 You can pass multiple strings and arrays in a single console.table call.
 Each argument will be formatted and printed separately on new line
 
-Use in browser: **INCOMPLETE, PROBABLY CHROME ONLY FOR NOW**
+## Use in browser
+
+**INCOMPLETE, PROBABLY CHROME ONLY FOR NOW**
 
 ```html
 <script src="bower_components/console.table/dist/console.table.js"></script>
@@ -117,3 +120,5 @@ OTHER DEALINGS IN THE SOFTWARE.
 [console.table-dependencies-url]: https://david-dm.org/bahmutov/console.table
 [console.table-devdependencies-image]: https://david-dm.org/bahmutov/console.table/dev-status.png
 [console.table-devdependencies-url]: https://david-dm.org/bahmutov/console.table#info=devDependencies
+[semantic-image]: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
+[semantic-url]: https://github.com/semantic-release/semantic-release

@@ -1,7 +1,7 @@
 {
   "name": "console.table",
   "description": "Adds console.table method that prints an array of objects as a table in console",
-  "version": "0.4.0",
+  "version": "0.0.0",
   "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
   "bugs": {
     "url": "https://github.com/bahmutov/console.table/issues"
@@ -12,6 +12,7 @@
   },
   "devDependencies": {
     "better-assert": "1.0.2",
+    "condition-node-version": "1.3.0",
     "expect.js": "0.3.1",
     "grunt": "0.4.5",
     "grunt-banner": "0.3.1",
@@ -29,11 +30,18 @@
     "matchdep": "0.3.0",
     "mocha": "2.1.0",
     "pre-git": "0.1.1",
+    "semantic-release": "^4.3.5",
     "sinon": "1.12.2",
     "time-grunt": "1.0.0"
   },
   "engines": {
     "node": "> 0.10"
+  },
+  "release": {
+    "verifyConditions": {
+      "path": "condition-node-version",
+      "node": "6"
+    }
   },
   "homepage": "https://github.com/bahmutov/console.table",
   "keywords": [
@@ -50,11 +58,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:bahmutov/console.table.git"
+    "url": "https://github.com/bahmutov/console.table.git"
   },
   "scripts": {
     "test": "node test/test.js && grunt && npm run unit",
     "unit": "node node_modules/mocha/bin/mocha -R spec",
-    "demo": "node test/test.js"
+    "demo": "node test/test.js",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   }
 }
