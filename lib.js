@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  function setupConsoleTable() {
+  module.exports = function setupConsoleTable(options) {
     if (typeof console === 'undefined') {
       throw new Error('Weird, console object is undefined');
     }
@@ -9,15 +9,31 @@
       return;
     }
 
+    options || (options = {});
+
+    var method = options.method || 'log';
     var Table = require('easy-table');
 
     function arrayToString(arr) {
       var t = new Table();
+      var keys;
+
+      if (options.useFirstRow && arr.length > 1 && arr.every(Array.isArray)) {
+        keys = arr.shift();
+      }
+
       arr.forEach(function (record) {
         if (typeof record === 'string' ||
           typeof record === 'number') {
           t.cell('item', record);
+        } else if (keys) {
+          //console.error('keys', keys, record.length);
+
+          record.forEach(function (property, index) {
+            t.cell(keys[index], property);
+          });
         } else {
+          //console.error('DOWN HERE', keys);
           // assume plain object
           Object.keys(record).forEach(function (property) {
             t.cell(property, record[property]);
@@ -25,6 +41,7 @@
         }
         t.newRow();
       });
+
       return t.toString();
     }
 
@@ -35,14 +52,14 @@
         if (title.length > rowLength) {
           rowLength = title.length;
         }
-        console.log(title);
+        console[method](title);
         var sep = '-', k, line = '';
         for (k = 0; k < rowLength; k += 1) {
           line += sep;
         }
-        console.log(line);
+        console[method](line);
       }
-      console.log(str);
+      console[method](str);
     }
 
     function objectToArray(obj) {
@@ -70,15 +87,13 @@
       }
       args.forEach(function (k) {
         if (typeof k === 'string') {
-          return console.log(k);
+          return console[method](k);
         } else if (Array.isArray(k)) {
-          console.log(arrayToString(k));
+          console[method](arrayToString(k));
         } else if (typeof k === 'object') {
-          console.log(objectToString(k));
+          console[method](objectToString(k));
         }
       });
     };
-  }
-
-  setupConsoleTable();
+  };
 }());
