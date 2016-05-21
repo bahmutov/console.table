@@ -69,10 +69,5 @@
   "passfail"      : false,
   "white"         : true,
 
-  "globals"       : {
-    "describe": true,
-    "it": true,
-    "beforeEach": true,
-    "afterEach": true
-  }
+  "mocha"         : true
 }
