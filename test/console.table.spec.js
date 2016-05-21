@@ -3,13 +3,17 @@ var assert = require('better-assert');
 var sinon = require('sinon');
 
 describe('console.table', function () {
-  beforeEach(function () {
+  before(function () {
     // make sure the module is loaded without caching
-    delete require.cache[require.resolve('../index')];
+    delete require.cache[require.resolve('..')];
+  });
+
+  beforeEach(function () {
+    this.sinon = sinon.sandbox.create();
   });
 
   afterEach(function () {
-    delete console.table;
+    this.sinon.restore();
   });
 
   it('fills missing method', function () {
@@ -17,68 +21,207 @@ describe('console.table', function () {
   });
 
   it('installs html method', function () {
-    require('../index');
+    require('..');
     expect(typeof console.table).to.be('function');
   });
 
-  it('logs simple string', function () {
-    require('../index');
-    sinon.spy(console, 'log');
-    console.table('foo');
-    assert(console.log.firstCall.calledWith('foo'));
-    console.log.restore();
+  describe('installer', function () {
+    before(function () {
+      delete require.cache[require.resolve('..')];
+
+      this.installer = require('../lib');
+    });
+
+    afterEach(function() {
+      delete console.table;
+    });
+
+    it('should be a function', function() {
+      assert(typeof this.installer === 'function');
+    });
+
+    it('should default to console.log', function () {
+      var spy = this.sinon.spy(console, 'log');
+      this.installer();
+
+      console.table('test');
+
+      sinon.assert.calledOnce(spy);
+    });
+
+    it('should be overridable', function() {
+      var stub = this.sinon.stub(console, 'info');
+      this.installer({method: 'info'});
+
+      console.table('test');
+
+      sinon.assert.calledOnce(stub);
+    });
   });
 
-  it('logs several strings separately', function () {
-    require('../index');
-    sinon.spy(console, 'log');
-    console.table('foo', 'bar');
-    assert(console.log.firstCall.calledWith('foo'));
-    assert(console.log.secondCall.calledWith('bar'));
-    console.log.restore();
-  });
+  describe('installer(method = "info")', function () {
+    before(function () {
+      delete console.table;
+      delete require.cache[require.resolve('..')];
 
-  it('can print title', function () {
-    require('../index');
-    console.table('These are numbers', [1, 2, 3]);
-  });
+      this.method = 'info';
 
-  it('objects with title', function () {
-    var objects = [
-      {
-        name: 'foo',
-        age: 10
-      },
-      {
-        name: 'bar',
-        age: 20
-      },
-      {
-        name: 'baz',
-        age: 30
-      }
-    ];
-    require('../index');
-    console.table('Several objects', objects);
-  });
-});
+      require('../lib')({method: this.method});
+    });
 
-describe('console.table object', function () {
-  beforeEach(function () {
-    // make sure the module is loaded without caching
-    delete require.cache[require.resolve('../index')];
-    require('../index');
-  });
+    beforeEach(function () {
+      this.stub = this.sinon.stub(console, this.method);
+    });
 
-  afterEach(function () {
-    delete console.table;
-  });
+    it('logs simple string', function () {
+      console.table('foo');
 
-  it('prints an object', function () {
-    console.table({ foo: 'foo', bar: 'bar' });
-  });
+      sinon.assert.calledOnce(this.stub);
+      sinon.assert.calledWith(this.stub, 'foo');
+    });
 
-  it('prints an object', function () {
-    console.table('this is an object', { foo: 'foo', bar: 'bar' });
+    it('logs several strings separately', function () {
+      console.table('foo', 'bar');
+
+      sinon.assert.calledTwice(this.stub);
+      assert(this.stub.firstCall.calledWith('foo'));
+      assert(this.stub.secondCall.calledWith('bar'));
+    });
+
+    it('can print title', function () {
+      console.table('These are numbers', [1, 2, 3]);
+
+      sinon.assert.calledThrice(this.stub);
+      assert(this.stub.firstCall.calledWith('These are numbers'));
+      assert(this.stub.secondCall.calledWith('-----------------'));
+      assert(this.stub.thirdCall.calledWith('item\n----\n1   \n2   \n3   \n'));
+    });
+
+    it('objects with title', function () {
+      console.table('Several objects', [
+        {
+          name: 'foo',
+          age: 10
+        },
+        {
+          name: 'bar',
+          age: 20
+        },
+        {
+          name: 'baz',
+          age: 30
+        }
+      ]);
+
+      sinon.assert.calledThrice(this.stub);
+      assert(this.stub.firstCall.calledWith('Several objects'));
+      assert(this.stub.secondCall.calledWith('---------------'));
+      assert(this.stub.thirdCall.calledWith(
+        'name  age\n----  ---\nfoo   10 \nbar   20 \nbaz   30 \n'
+      ));
+    });
+
+    describe('objects', function () {
+      it('prints an object', function () {
+        console.table({ foo: 'foo', bar: 'bar' });
+
+        sinon.assert.calledOnce(this.stub);
+        sinon.assert.calledWith(this.stub, 'key  value\n---  -----\nfoo  foo  \nbar  bar  \n');
+      });
+
+      it('prints an object with a title', function () {
+        console.table('this is an object', { foo: 'foo', bar: 'bar' });
+
+        sinon.assert.calledTwice(this.stub);
+        assert(this.stub.firstCall.calledWith('this is an object'));
+        assert(this.stub.secondCall.calledWith('key  value\n---  -----\nfoo  foo  \nbar  bar  \n'));
+      });
+    });
+
+    describe('arrays', function () {
+      it('prints an array', function () {
+        console.table(['a', 'b', 'c']);
+
+        sinon.assert.calledOnce(this.stub);
+        sinon.assert.calledWith(this.stub, 'item\n----\na   \nb   \nc   \n');
+      });
+
+      it('prints an array with a title', function () {
+        console.table('My title here', ['a', 'b', 'c']);
+
+        sinon.assert.calledThrice(this.stub);
+        assert(this.stub.firstCall.calledWith('My title here'));
+        assert(this.stub.secondCall.calledWith('-------------'));
+        assert(this.stub.thirdCall.calledWith('item\n----\na   \nb   \nc   \n'));
+      });
+
+      it('prints a two-dimensional array', function () {
+        console.table([
+          ['a', 'b', 'c'],
+          ['d', 'e', 'f'],
+          ['g', 'h', 'i']
+        ]);
+
+        assert(this.stub.calledOnce);
+        sinon.assert.calledWith(this.stub, '0  1  2\n-  -  -\na  b  c\nd  e  f\ng  h  i\n');
+      });
+
+      it('prints a mixed type two-dimensional array', function () {
+        console.table([
+          ['a', 'b', 'c'],
+          'd',
+          ['e', 'f', 'g']
+        ]);
+
+        sinon.assert.calledOnce(this.stub);
+        sinon.assert.calledWith(
+          this.stub,
+          '0  1  2  item\n-  -  -  ----\na  b  c      \n         d   \ne  f  g      \n'
+        );
+      });
+
+      describe('installer(useFirstRow = true)', function () {
+        beforeEach(function () {
+          delete console.table;
+
+          require('../lib')({
+            method: this.method,
+            useFirstRow: true
+          });
+        });
+
+        it('prints an array', function () {
+          console.table(['a', 'b', 'c']);
+
+          sinon.assert.calledOnce(this.stub);
+          sinon.assert.calledWith(this.stub, 'item\n----\na   \nb   \nc   \n');
+        });
+
+        it('prints a two-dimensional array', function () {
+          console.table([
+            ['a', 'b', 'c'],
+            ['d', 'e', 'f'],
+            ['g', 'h', 'i']
+          ]);
+
+          assert(this.stub.calledOnce);
+          sinon.assert.calledWith(this.stub, 'a  b  c\n-  -  -\nd  e  f\ng  h  i\n');
+        });
+
+        it('prints a mixed type two-dimensional array', function () {
+          console.table([
+            ['a', 'b', 'c'],
+            'd',
+            ['e', 'f', 'g']
+          ]);
+
+          sinon.assert.calledOnce(this.stub);
+          sinon.assert.calledWith(
+            this.stub,
+            '0  1  2  item\n-  -  -  ----\na  b  c      \n         d   \ne  f  g      \n'
+          );
+        });
+      });
+    });
   });
 });
