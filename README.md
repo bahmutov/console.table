@@ -60,7 +60,7 @@ to console.log
 If first argument is a string, and a second argument is an array, prints
 title row
 
-```
+```sh
 console.table('Several objects', [...]);
 
 Several objects
@@ -70,6 +70,34 @@ name  age
 foo   10
 bar   20
 baz   30
+```
+
+## Printing array with column names
+
+You can use the given column names when printing an array of arrays. For example,
+
+```sh
+var values = [
+  ['max', 20],
+  ['joe', 30]
+];
+console.table(['name', 'age'], values);
+
+name  age
+----  ---
+max   20 
+joe   30
+```
+
+If the titles is the first item in the array, just use `slice`
+
+```js
+var values = [
+    ['name', 'age'],
+    ['max', 20],
+    ['joe', 30]
+]
+console.table(values[0], values.slice(1));
 ```
 
 ### Small print

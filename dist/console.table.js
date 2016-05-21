@@ -9,6 +9,20 @@
       return;
     }
 
+    function isType(t, x) {
+      return typeof x === t;
+    }
+
+    var isString = isType.bind(null, 'string');
+
+    function isArrayOf(isTypeFn, a) {
+      return Array.isArray(a) &&
+        a.every(isTypeFn);
+    }
+
+    var isArrayOfStrings = isArrayOf.bind(null, isString);
+    var isArrayOfArrays = isArrayOf.bind(null, Array.isArray);
+
     var Table = require('easy-table');
 
     function arrayToString(arr) {
@@ -26,6 +40,18 @@
         t.newRow();
       });
       return t.toString();
+    }
+
+    function printTableWithColumnTitles(titles, items) {
+      var t = new Table();
+      items.forEach(function (item) {
+        item.forEach(function (value, k) {
+          t.cell(titles[k], value);
+        });
+        t.newRow();
+      });
+      var str = t.toString();
+      console.log(str);
     }
 
     function printTitleTable(title, arr) {
@@ -68,6 +94,13 @@
 
         return printTitleTable(args[0], args[1]);
       }
+
+      if (args.length === 2 &&
+        isArrayOfStrings(args[0]) &&
+        isArrayOfArrays(args[1])) {
+        return printTableWithColumnTitles(args[0], args[1]);
+      }
+
       args.forEach(function (k) {
         if (typeof k === 'string') {
           return console.log(k);

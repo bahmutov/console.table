@@ -76,6 +76,7 @@
     "url": "https://github.com/bahmutov/console.table.git"
   },
   "scripts": {
+    "build": "grunt",
     "commit": "commit-wizard",
     "demo": "node test/test.js",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
