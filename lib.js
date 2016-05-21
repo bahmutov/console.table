@@ -9,7 +9,9 @@
       return;
     }
 
-    options || (options = {});
+    if (!options) {
+      options = {};
+    }
 
     var method = options.method || 'log';
     var Table = require('easy-table');
