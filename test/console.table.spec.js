@@ -1,28 +1,37 @@
+'use strict';
+
 var expect = require('expect.js');
 var assert = require('better-assert');
 var sinon = require('sinon');
 
-describe('console.table', function () {
-  beforeEach(function () {
-    // make sure the module is loaded without caching
-    delete require.cache[require.resolve('../index')];
-  });
+function loadMethod() {
+  require('../index');
+}
 
-  afterEach(function () {
-    delete console.table;
-  });
+function cleanLoadedCache() {
+  // make sure the module is loaded without caching
+  delete require.cache[require.resolve('../index')];
+}
+
+function deleteTableMethod() {
+  delete console.table;
+}
+
+describe('console.table', function () {
+  beforeEach(cleanLoadedCache);
+  afterEach(deleteTableMethod);
 
   it('fills missing method', function () {
     expect(console.table).to.be(undefined);
   });
 
   it('installs html method', function () {
-    require('../index');
+    loadMethod();
     expect(typeof console.table).to.be('function');
   });
 
   it('logs simple string', function () {
-    require('../index');
+    loadMethod();
     sinon.spy(console, 'log');
     console.table('foo');
     assert(console.log.firstCall.calledWith('foo'));
@@ -30,7 +39,7 @@ describe('console.table', function () {
   });
 
   it('logs several strings separately', function () {
-    require('../index');
+    loadMethod();
     sinon.spy(console, 'log');
     console.table('foo', 'bar');
     assert(console.log.firstCall.calledWith('foo'));
@@ -39,7 +48,7 @@ describe('console.table', function () {
   });
 
   it('can print title', function () {
-    require('../index');
+    loadMethod();
     console.table('These are numbers', [1, 2, 3]);
   });
 
@@ -58,21 +67,18 @@ describe('console.table', function () {
         age: 30
       }
     ];
-    require('../index');
+    loadMethod();
     console.table('Several objects', objects);
   });
 });
 
 describe('console.table object', function () {
   beforeEach(function () {
-    // make sure the module is loaded without caching
-    delete require.cache[require.resolve('../index')];
-    require('../index');
+    cleanLoadedCache();
+    loadMethod();
   });
 
-  afterEach(function () {
-    delete console.table;
-  });
+  afterEach(deleteTableMethod);
 
   it('prints an object', function () {
     console.table({ foo: 'foo', bar: 'bar' });
