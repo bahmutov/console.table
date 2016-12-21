@@ -37,7 +37,7 @@
     "grunt-contrib-watch": "0.6.1",
     "grunt-deps-ok": "0.5.2",
     "grunt-mocha-test": "0.12.7",
-    "grunt-nice-package": "0.10.2",
+    "grunt-nice-package": "0.10.3",
     "grunt-npm2bower-sync": "0.8.1",
     "matchdep": "0.3.0",
     "mocha": "2.4.5",
