@@ -20,7 +20,7 @@
   },
   "contributors": [],
   "dependencies": {
-    "easy-table": "0.3.0"
+    "easy-table": "1.0.0"
   },
   "devDependencies": {
     "better-assert": "1.0.2",
