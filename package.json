@@ -42,7 +42,7 @@
     "matchdep": "0.3.0",
     "mocha": "3.5.0",
     "pre-git": "3.15.3",
-    "semantic-release": "^7.0.2",
+    "semantic-release": "7.0.2",
     "sinon": "1.12.2",
     "time-grunt": "1.4.0"
   },

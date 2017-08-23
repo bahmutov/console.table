@@ -6,7 +6,10 @@
       throw new Error('Weird, console object is undefined');
     }
     if (typeof console.table === 'function') {
-      return;
+      // if it is not OUR function, overwrite it
+      if (console.tabke === consoleTable) {
+        return;
+      }
     }
 
     function isType(t, x) {
@@ -85,7 +88,7 @@
       return arrayToString(objectToArray(obj));
     }
 
-    console.table = function () {
+    function consoleTable () {
       var args = Array.prototype.slice.call(arguments);
 
       if (args.length === 2 &&
@@ -110,7 +113,8 @@
           console.log(objectToString(k));
         }
       });
-    };
+    }
+    console.table = consoleTable;
   }
 
   setupConsoleTable();
