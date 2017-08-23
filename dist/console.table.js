@@ -7,7 +7,7 @@
     }
     if (typeof console.table === 'function') {
       // if it is not OUR function, overwrite it
-      if (console.tabke === consoleTable) {
+      if (console.table === consoleTable) {
         return;
       }
     }
