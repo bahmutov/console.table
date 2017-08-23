@@ -20,7 +20,7 @@
   },
   "contributors": [],
   "dependencies": {
-    "easy-table": "1.0.0"
+    "easy-table": "1.1.0"
   },
   "devDependencies": {
     "better-assert": "1.0.2",
@@ -35,16 +35,16 @@
     "grunt-contrib-jshint": "1.0.0",
     "grunt-contrib-uglify": "0.7.0",
     "grunt-contrib-watch": "0.6.1",
-    "grunt-deps-ok": "0.5.2",
+    "grunt-deps-ok": "0.9.0",
     "grunt-mocha-test": "0.12.7",
-    "grunt-nice-package": "0.10.3",
+    "grunt-nice-package": "0.10.4",
     "grunt-npm2bower-sync": "0.8.1",
     "matchdep": "0.3.0",
-    "mocha": "2.4.5",
-    "pre-git": "3.8.4",
+    "mocha": "3.5.0",
+    "pre-git": "3.15.3",
     "semantic-release": "4.3.5",
     "sinon": "1.12.2",
-    "time-grunt": "1.0.0"
+    "time-grunt": "1.4.0"
   },
   "engines": {
     "node": "> 0.10"
@@ -69,7 +69,8 @@
     "verifyConditions": {
       "path": "condition-node-version",
       "node": "6"
-    }
+    },
+    "analyzeCommits": "simple-commit-message"
   },
   "repository": {
     "type": "git",
