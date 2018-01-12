@@ -154,7 +154,7 @@
       });
 
       return strToReturn;
-    }
+    };
 
     console.table = consoleTable;
   }
