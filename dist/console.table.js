@@ -45,7 +45,7 @@
       return t.toString();
     }
 
-    function printTableWithColumnTitles(titles, items) {
+    function printTableWithColumnTitles(titles, items,noConsole) {
       var t = new Table();
       items.forEach(function (item) {
         item.forEach(function (value, k) {
@@ -54,24 +54,50 @@
         t.newRow();
       });
       var str = t.toString();
-      console.log(str);
+
+      return noConsole ? str : console.log(str);
     }
 
     function printTitleTable(title, arr) {
       var str = arrayToString(arr);
       var rowLength = str.indexOf('\n');
+      var strToReturn = '';
       if (rowLength > 0) {
         if (title.length > rowLength) {
           rowLength = title.length;
         }
         console.log(title);
+        strToReturn += title;
+        var sep = '-', k, line = '';
+        for (k = 0; k < rowLength; k += 1) {
+          line += sep;
+       }
+        console.log(line);
+        strToReturn += line;
+      }
+      console.log(str);
+
+      return strToReturn + str;
+    }
+
+    function getTitleTable(title, arr) {
+      var str = arrayToString(arr);
+      var rowLength = str.indexOf('\n');
+      var strToReturn = '';
+      if (rowLength > 0) {
+        if (title.length > rowLength) {
+          rowLength = title.length;
+        }
+        
+        strToReturn += title;
         var sep = '-', k, line = '';
         for (k = 0; k < rowLength; k += 1) {
           line += sep;
         }
-        console.log(line);
+        strToReturn += line;
       }
-      console.log(str);
+
+      return strToReturn + str;
     }
 
     function objectToArray(obj) {
@@ -114,6 +140,42 @@
         }
       });
     }
+
+    module.exports.getTable = function(){
+      var args = Array.prototype.slice.call(arguments);
+
+      var strToReturn = '';
+
+      if (args.length === 2 &&
+        typeof args[0] === 'string' &&
+        Array.isArray(args[1])) {
+
+        return getTitleTable(args[0], args[1]);
+      }
+
+      if (args.length === 2 &&
+        isArrayOfStrings(args[0]) &&
+        isArrayOfArrays(args[1])) {
+        return printTableWithColumnTitles(args[0], args[1],true);
+      }
+
+      args.forEach(function (k,i) {
+        if (typeof k === 'string') {
+          strToReturn += k;
+	  if (i !== args.length - 1){
+	    strToReturn += '\n';
+	  }
+          return ;
+        } else if (Array.isArray(k)) {
+          strToReturn += arrayToString(k) + '\n';
+        } else if (typeof k === 'object') {
+          strToReturn += objectToString(k);
+        }
+      });
+
+      return strToReturn;
+    };
+
     console.table = consoleTable;
   }
 
