@@ -43,9 +43,6 @@ Each argument will be formatted and printed separately on new line
 
 **Get only table string**
 ```
-// call once somewhere in the beginning of the app
-const cTable = require('console.table');
-
 const table = cTable.getTable([
   {
     name: 'foo',
