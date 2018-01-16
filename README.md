@@ -20,7 +20,7 @@ bower install console.table --save
 
 ```
 // call once somewhere in the beginning of the app
-require('console.table');
+const cTable = require('console.table');
 console.table([
   {
     name: 'foo',
@@ -40,6 +40,27 @@ bar   20
 
 You can pass multiple strings and arrays in a single console.table call.
 Each argument will be formatted and printed separately on new line
+
+**Get only table string**
+```
+const table = cTable.getTable([
+  {
+    name: 'foo',
+    age: 10
+  }, {
+    name: 'bar',
+    age: 20
+  }
+]);
+
+console.log(table);
+
+// prints
+name  age
+----  ---
+foo   10
+bar   20
+```
 
 ## Use in browser
 
