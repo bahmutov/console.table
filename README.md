@@ -126,8 +126,8 @@ console.table(values[0], values.slice(1));
 Author: Gleb Bahmutov &copy; 2014
 
 * [@bahmutov](https://twitter.com/bahmutov)
-* [glebbahmutov.com](http://glebbahmutov.com)
-* [blog](http://bahmutov.calepin.co/)
+* [glebbahmutov.com](https://glebbahmutov.com)
+* [blog](https://glebbahmutov.com/blog)
 
 License: MIT - do anything with the code, but don't blame me if it does not work.
 
